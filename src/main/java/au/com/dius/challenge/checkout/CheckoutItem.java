@@ -38,6 +38,14 @@ public class CheckoutItem {
 		return unitPrice;
 	}
 	
+	public BigDecimal getTotal() {
+		return unitPrice.multiply(BigDecimal.valueOf(quantity)).subtract(discount);
+	}
+
+	public String getSKU() {
+		return sku;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -61,13 +69,5 @@ public class CheckoutItem {
 		} else if (!sku.equals(other.sku))
 			return false;
 		return true;
-	}
-
-	public BigDecimal getTotal() {
-		return unitPrice.multiply(BigDecimal.valueOf(quantity)).subtract(discount);
-	}
-
-	public String getSKU() {
-		return sku;
 	}
 }

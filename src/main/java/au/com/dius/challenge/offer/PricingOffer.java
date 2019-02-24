@@ -12,10 +12,7 @@ public class PricingOffer {
 	private Collection<Offer> offers = new ArrayList<>();
 	
 	public void applyOffers(Map<String, CheckoutItem> items) {
-		
-		for (Offer offer : offers) {
-			offer.applyOffer(items);
-		}
+		offers.stream().forEach(o-> o.applyOffer(items));
 	}
 	
 	public void createBuyXGetXFree(String skuOffer, Integer minBuyingQuantity, Integer freeQuantity) {
